@@ -1,6 +1,9 @@
 package com.oocl;
 
+import java.util.List;
+
 public class Teacher extends Person{
+    List<ClassManagement> classList;
     public Teacher()
     {
 
@@ -9,6 +12,12 @@ public class Teacher extends Person{
     public Teacher(String name, int age)
     {
         super(name, age);
+    }
+
+    public void assignClass(ClassManagement classToTeach)
+    {
+        if (classList.size() < 6)
+            classList.add(classToTeach);
     }
 
     @Override
