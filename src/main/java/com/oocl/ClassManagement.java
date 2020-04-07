@@ -47,6 +47,7 @@ public class ClassManagement {
 
     public String assignClassLeader(Student student) {
         if (students.contains(student)) {
+            if (classLeader != null) classLeader.setClassLeader(false);
             classLeader = student;
             classLeader.setClassLeader(true);
             return String.format("%s is assigned as class leader.", classLeader.getName());
