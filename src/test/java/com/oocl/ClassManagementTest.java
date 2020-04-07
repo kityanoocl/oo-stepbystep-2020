@@ -13,9 +13,11 @@ public class ClassManagementTest {
         ClassManagement class3 = new ClassManagement(3);
         Teacher teacher = new Teacher("Woody", 30);
         Student studentF = new Student("Tom", 18);
+        Student studentG = new Student("Mary", 19);
         class2.setTeacher(teacher);
         Assert.assertEquals("My name is Woody. I am 30 years old. Teaching for the future of world. Welcome Tom join Class 2.", class2.studentJoin(studentF));
         Assert.assertEquals("Tom is already assigned in Class 2, cannot assign in Class 3.", class3.studentJoin(studentF));
+        Assert.assertEquals("Welcome Mary join Class 3.", class3.studentJoin(studentG));
     }
 
     @Test
