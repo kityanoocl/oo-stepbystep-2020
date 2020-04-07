@@ -29,6 +29,7 @@ public class ClassManagement {
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+        teacher.assignClass(this);
     }
 
     public Student getClassLeader() {
@@ -44,9 +45,12 @@ public class ClassManagement {
         return String.format("%s is already assigned in Class %d, cannot assign in Class %d.", student.getName(), student.getClassNo(), this.classNo);
     }
 
-    public void assignClassLeader() {
-        Random rand = new Random();
-        classLeader =  students.get(rand.nextInt(students.size()));
-        classLeader.setClassLeader(true);
+    public String assignClassLeader(Student student) {
+        if (students.contains(student)) {
+            classLeader = student;
+            classLeader.setClassLeader(true);
+            return String.format("%s is assigned as class leader.", classLeader.getName());
+        }
+        return String.format("%s is not belong to this class.", student.getName());
     }
 }
