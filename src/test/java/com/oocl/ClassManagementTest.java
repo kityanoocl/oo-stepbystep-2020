@@ -30,4 +30,22 @@ public class ClassManagementTest {
         Assert.assertEquals("Tom is assigned as class leader.", class2.assignClassLeader(studentF));
         Assert.assertEquals("Mary is not belong to this class.", class2.assignClassLeader(studentG));
     }
+
+    @Test
+    public void should_assign_teacher_to_class_correct()
+    {
+        ClassManagement class1 = new ClassManagement(1);
+        ClassManagement class2 = new ClassManagement(2);
+        ClassManagement class3 = new ClassManagement(3);
+        ClassManagement class4 = new ClassManagement(4);
+        ClassManagement class5 = new ClassManagement(5);
+        ClassManagement class6 = new ClassManagement(6);
+        Teacher teacher = new Teacher("Woody", 30);
+        Assert.assertEquals("Woody is teaching class 1.", class1.setTeacher(teacher));
+        Assert.assertEquals("Woody is teaching class 2.", class2.setTeacher(teacher));
+        Assert.assertEquals("Woody is teaching class 3.", class3.setTeacher(teacher));
+        Assert.assertEquals("Woody is teaching class 4.", class4.setTeacher(teacher));
+        Assert.assertEquals("Woody is teaching class 5.", class5.setTeacher(teacher));
+        Assert.assertEquals("Woody is already teaching 5 classes.", class6.setTeacher(teacher));
+    }
 }

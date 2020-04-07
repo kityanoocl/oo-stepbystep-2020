@@ -27,9 +27,12 @@ public class ClassManagement {
         return teacher;
     }
 
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
-        teacher.assignClass(this);
+    public String setTeacher(Teacher teacher) {
+        if (teacher.assignClass(this)) {
+            this.teacher = teacher;
+            return String.format("%s is teaching class %d.", teacher.getName(), this.classNo);
+        }
+        return String.format("%s is already teaching 5 classes.", teacher.getName());
     }
 
     public Student getClassLeader() {

@@ -16,10 +16,13 @@ public class Teacher extends Person{
         classList = new ArrayList<ClassManagement>();
     }
 
-    public void assignClass(ClassManagement classToTeach)
+    public boolean assignClass(ClassManagement classToTeach)
     {
-        if (classList.size() < 6)
+        if (classList.size() < 5) {
             classList.add(classToTeach);
+            return true;
+        }
+        return false;
     }
 
     @Override
