@@ -18,7 +18,7 @@ public class Teacher extends Person{
 
     public boolean assignClass(ClassManagement classToTeach)
     {
-        if (classList.size() < 5) {
+        if (classList.size() < 5 && !classList.contains(classToTeach)) {
             classList.add(classToTeach);
             return true;
         }

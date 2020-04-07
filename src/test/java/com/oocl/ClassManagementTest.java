@@ -14,10 +14,14 @@ public class ClassManagementTest {
         Teacher teacher = new Teacher("Woody", 30);
         Student studentF = new Student("Tom", 18);
         Student studentG = new Student("Mary", 19);
+        Student studentH = new Student("Happy", 20);
+        Student studentI = new Student("Ivan", 21);
         class2.setTeacher(teacher);
         Assert.assertEquals("My name is Woody. I am 30 years old. Teaching for the future of world. Welcome Tom join Class 2.", class2.studentJoin(studentF));
+        Assert.assertEquals("My name is Woody. I am 30 years old. Teaching for the future of world. Welcome Happy join Class 2. My name is Tom. I am 18 years old. I am a student of class 2. Coding for the glory of OOCL. Welcome Happy join Class 2.", class2.studentJoin(studentH));
         Assert.assertEquals("Tom is already assigned in Class 2, cannot assign in Class 3.", class3.studentJoin(studentF));
         Assert.assertEquals("Welcome Mary join Class 3.", class3.studentJoin(studentG));
+        Assert.assertEquals("My name is Mary. I am 19 years old. I am a student of class 3. Coding for the glory of OOCL. Welcome Ivan join Class 3.", class3.studentJoin(studentI));
     }
 
     @Test
@@ -46,10 +50,11 @@ public class ClassManagementTest {
         ClassManagement class6 = new ClassManagement(6);
         Teacher teacher = new Teacher("Woody", 30);
         Assert.assertEquals("Woody is teaching class 1.", class1.setTeacher(teacher));
+        Assert.assertEquals("Woody is already teaching 5 classes or already teaching this class.", class1.setTeacher(teacher));
         Assert.assertEquals("Woody is teaching class 2.", class2.setTeacher(teacher));
         Assert.assertEquals("Woody is teaching class 3.", class3.setTeacher(teacher));
         Assert.assertEquals("Woody is teaching class 4.", class4.setTeacher(teacher));
         Assert.assertEquals("Woody is teaching class 5.", class5.setTeacher(teacher));
-        Assert.assertEquals("Woody is already teaching 5 classes.", class6.setTeacher(teacher));
+        Assert.assertEquals("Woody is already teaching 5 classes or already teaching this class.", class6.setTeacher(teacher));
     }
 }

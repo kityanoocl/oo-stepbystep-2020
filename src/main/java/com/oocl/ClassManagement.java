@@ -32,7 +32,7 @@ public class ClassManagement {
             this.teacher = teacher;
             return String.format("%s is teaching class %d.", teacher.getName(), this.classNo);
         }
-        return String.format("%s is already teaching 5 classes.", teacher.getName());
+        return String.format("%s is already teaching 5 classes or already teaching this class.", teacher.getName());
     }
 
     public Student getClassLeader() {
@@ -41,12 +41,19 @@ public class ClassManagement {
 
     public String studentJoin(Student student) {
         if (student.classNo == -1) {
+            String welcomePrompt = "";
+            if (this.teacher != null)
+                welcomePrompt = String.format("%s Welcome %s join Class %d.", this.teacher.introduce(), student.getName(), this.classNo);
+
+            for (Student element : students) {
+                if (welcomePrompt != "") welcomePrompt += " ";
+                welcomePrompt += String.format("%s Welcome %s join Class %d.", element.introduce(), student.getName(), this.classNo);
+            }
+
             students.add(student);
             student.setClassNo(this.classNo);
-            if (this.teacher != null)
-                return String.format("%s Welcome %s join Class %d.", this.teacher.introduce(), student.getName(), this.classNo);
-            else
-                return String.format("Welcome %s join Class %d.", student.getName(), this.classNo);
+
+            return (welcomePrompt == "")? String.format("Welcome %s join Class %d.", student.getName(), this.classNo) : welcomePrompt;
         }
         return String.format("%s is already assigned in Class %d, cannot assign in Class %d.", student.getName(), student.getClassNo(), this.classNo);
     }
