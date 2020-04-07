@@ -42,16 +42,16 @@ public class ClassManagement {
     public String studentJoin(Student student) {
         if (student.classNo == -1) {
             String welcomePrompt = "";
+            student.setClassNo(this.classNo);
             if (this.teacher != null)
-                welcomePrompt = String.format("%s Welcome %s join Class %d.", this.teacher.introduce(), student.getName(), this.classNo);
+                welcomePrompt = this.teacher.welcomeStudent(student);
 
-            for (Student element : students) {
+            for (Student otherStudent : students) {
                 if (welcomePrompt != "") welcomePrompt += " ";
-                welcomePrompt += String.format("%s Welcome %s join Class %d.", element.introduce(), student.getName(), this.classNo);
+                welcomePrompt += otherStudent.welcomeStudent(student);
             }
 
             students.add(student);
-            student.setClassNo(this.classNo);
 
             return (welcomePrompt == "")? String.format("Welcome %s join Class %d.", student.getName(), this.classNo) : welcomePrompt;
         }
@@ -60,13 +60,22 @@ public class ClassManagement {
 
     public String assignClassLeader(Student student) {
         if (students.contains(student)) {
+            String greetingPrompt = "";
             if (classLeader != null) classLeader.setClassLeader(false);
             classLeader = student;
-            classLeader.setClassLeader(true);
+
             if (this.teacher != null)
-                return String.format("My name is %s. I am %d years old. Teaching for the future of world. %s is the leader of Class %d.",
-                                        this.teacher.getName(), this.teacher.getAge(), this.classLeader.getName(), this.classNo);
-            return String.format("%s is assigned as class leader.", classLeader.getName());
+                greetingPrompt = this.teacher.greetClassLeader(classLeader);
+
+            for (Student element : students)
+            {
+                if (element != classLeader) {
+                    if (greetingPrompt != "") greetingPrompt += " ";
+                    greetingPrompt += element.greetClassLeader(classLeader);
+                }
+            }
+
+            return (greetingPrompt == "")? String.format("%s is assigned as class leader.", this.classLeader.getName()) : greetingPrompt;
         }
         return String.format("%s is not belong to this class.", student.getName());
     }

@@ -30,13 +30,13 @@ public class ClassManagementTest {
         ClassManagement class2 = new ClassManagement(2);
         Teacher teacher = new Teacher("Woody", 30);
         Student studentF = new Student("Tom", 18);
-        Student studentG = new Student("Mary", 17);
-        class2.studentJoin(studentG);
-        Assert.assertEquals("Mary is assigned as class leader.", class2.assignClassLeader(studentG));
-        Assert.assertEquals("Tom is not belong to this class.", class2.assignClassLeader(studentF));
+        Student studentG = new Student("Jim", 17);
         class2.studentJoin(studentF);
+        Assert.assertEquals("Tom is assigned as class leader.", class2.assignClassLeader(studentF));
+        Assert.assertEquals("Jim is not belong to this class.", class2.assignClassLeader(studentG));
+        class2.studentJoin(studentG);
         class2.setTeacher(teacher);
-        Assert.assertEquals("My name is Woody. I am 30 years old. Teaching for the future of world. Tom is the leader of Class 2.", class2.assignClassLeader(studentF));
+        Assert.assertEquals("My name is Woody. I am 30 years old. Teaching for the future of world. Jim is the leader of class 2. My name is Tom. I am 18 years old. I am a student of class 2. Coding for the glory of OOCL. Jim is the leader of Class 2.", class2.assignClassLeader(studentG));
     }
 
     @Test

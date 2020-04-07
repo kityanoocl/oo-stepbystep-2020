@@ -25,6 +25,16 @@ public class Teacher extends Person{
         return false;
     }
 
+    public String welcomeStudent(Student student)
+    {
+        return String.format("%s Welcome %s join Class %d.", this.introduce(), student.getName(), student.classNo);
+    }
+
+    public String greetClassLeader(Student classLeader)
+    {
+        return String.format("%s %s is the leader of class %d.", this.introduce(), classLeader.getName(), classLeader.getClassNo());
+    }
+
     @Override
     public String introduce()
     {

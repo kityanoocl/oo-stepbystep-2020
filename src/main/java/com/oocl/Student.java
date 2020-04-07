@@ -38,6 +38,16 @@ public class Student extends Person{
         isClassLeader = classLeader;
     }
 
+    public String welcomeStudent(Student student)
+    {
+        return String.format("%s Welcome %s join Class %d.", this.introduce(), student.getName(), this.classNo);
+    }
+
+    public String greetClassLeader(Student classLeader)
+    {
+        return String.format("%s %s is the leader of Class %d.", this.introduce(), classLeader.getName(), this.classNo);
+    }
+
     @Override
     public String introduce()
     {
