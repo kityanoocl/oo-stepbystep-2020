@@ -56,6 +56,9 @@ public class ClassManagement {
             if (classLeader != null) classLeader.setClassLeader(false);
             classLeader = student;
             classLeader.setClassLeader(true);
+            if (this.teacher != null)
+                return String.format("My name is %s. I am %d years old. Teaching for the future of world. %s is the leader of Class %d.",
+                                        this.teacher.getName(), this.teacher.getAge(), this.classLeader.getName(), this.classNo);
             return String.format("%s is assigned as class leader.", classLeader.getName());
         }
         return String.format("%s is not belong to this class.", student.getName());
