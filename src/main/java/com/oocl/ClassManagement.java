@@ -53,7 +53,7 @@ public class ClassManagement {
 
             students.add(student);
 
-            return (welcomePrompt == "")? String.format("Welcome %s join Class %d.", student.getName(), this.classNo) : welcomePrompt;
+            return (welcomePrompt == "") ? String.format("Welcome %s join Class %d.", student.getName(), this.classNo) : welcomePrompt;
         }
         return String.format("%s is already assigned in Class %d, cannot assign in Class %d.", student.getName(), student.getClassNo(), this.classNo);
     }
@@ -67,15 +67,14 @@ public class ClassManagement {
             if (this.teacher != null)
                 greetingPrompt = this.teacher.greetClassLeader(classLeader);
 
-            for (Student element : students)
-            {
+            for (Student element : students) {
                 if (element != classLeader) {
                     if (greetingPrompt != "") greetingPrompt += " ";
                     greetingPrompt += element.greetClassLeader(classLeader);
                 }
             }
 
-            return (greetingPrompt == "")? String.format("%s is assigned as class leader.", this.classLeader.getName()) : greetingPrompt;
+            return (greetingPrompt == "") ? String.format("%s is assigned as class leader.", this.classLeader.getName()) : greetingPrompt;
         }
         return String.format("%s is not belong to this class.", student.getName());
     }

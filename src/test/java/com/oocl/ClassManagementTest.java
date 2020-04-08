@@ -7,8 +7,7 @@ import static org.junit.Assert.*;
 
 public class ClassManagementTest {
     @Test
-    public void should_student_join_class_correct()
-    {
+    public void should_student_join_class_correct() {
         ClassManagement class2 = new ClassManagement(2);
         ClassManagement class3 = new ClassManagement(3);
         Teacher teacher = new Teacher("Woody", 30);
@@ -25,8 +24,7 @@ public class ClassManagementTest {
     }
 
     @Test
-    public void should_assign_class_leader_correct()
-    {
+    public void should_assign_class_leader_correct() {
         ClassManagement class2 = new ClassManagement(2);
         Teacher teacher = new Teacher("Woody", 30);
         Student studentF = new Student("Tom", 18);
@@ -40,8 +38,7 @@ public class ClassManagementTest {
     }
 
     @Test
-    public void should_assign_teacher_to_class_correct()
-    {
+    public void should_assign_teacher_to_class_correct() {
         ClassManagement class1 = new ClassManagement(1);
         ClassManagement class2 = new ClassManagement(2);
         ClassManagement class3 = new ClassManagement(3);
