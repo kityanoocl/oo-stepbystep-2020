@@ -63,7 +63,7 @@ public class ClassManagement {
             String greetingPrompt = "";
             if (classLeader != null) classLeader.setClassLeader(false);
             classLeader = student;
-
+            classLeader.setClassLeader(true);
             if (this.teacher != null)
                 greetingPrompt = this.teacher.greetClassLeader(classLeader);
 
